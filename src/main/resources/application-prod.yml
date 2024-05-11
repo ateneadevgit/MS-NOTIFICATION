@@ -1,0 +1,5 @@
+db-config:
+  domain: db-notification:5432
+  name: atenea_notification
+  user: postgres
+  password: VA@Atenea2023

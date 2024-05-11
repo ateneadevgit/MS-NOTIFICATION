@@ -1,0 +1,45 @@
+server:
+  port: 8020
+
+logging:
+  file:
+    name: /fusm-logs/notification.log
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${db-config.domain}/${db-config.name}
+    username: ${db-config.user}
+    password: ${db-config.password}
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 1
+      idle-timeout: 30000
+      connection-timeout: 20000
+      validation-timeout: 5000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: atenea@sanmartin.edu.co
+    password: jowgvqsrhyqcwpbv
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  profiles:
+    active: prod
+
+ms-notification:
+  notification:
+    path: /api/v1/notification
+  template:
+    path: /api/v1/template
